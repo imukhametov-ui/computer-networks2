@@ -258,3 +258,76 @@ DNS (Domain Name System) — система доменних імен, яка д
 
 У результаті закріплено практичні навички аналізу портів, процесів, транспортних протоколів TCP/UDP та DNS-резолвінгу.
 
+---
+## Усі виконані команди терміналу
+
+ubuntu@ubuntu-VirtualBox:~$ cd ~
+ubuntu@ubuntu-VirtualBox:~$ git clone https://github.com/imukhametov-ui/computer-networks2.git
+Клонування в "computer-networks2"..
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 8 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Отримання об’єктів: 100% (8/8), готово.
+ubuntu@ubuntu-VirtualBox:~$ cd computer-networks2
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$ ls -R
+.:
+homework  README.md
+
+./homework:
+module2
+
+./homework/module2:
+mukhametov_homework_2.md
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$ git status
+На гілці main
+Ваша гілка не відрізняється від "origin/main".
+
+нічого комітити, робоче дерево чисте
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$ ss -tuln
+Netid  State   Recv-Q  Send-Q   Local Address:Port    Peer Address:Port Process 
+udp    UNCONN  0       0          224.0.0.251:5353         0.0.0.0:*            
+udp    UNCONN  0       0              0.0.0.0:5353         0.0.0.0:*            
+udp    UNCONN  0       0              0.0.0.0:51307        0.0.0.0:*            
+udp    UNCONN  0       0        127.0.0.53%lo:53           0.0.0.0:*            
+udp    UNCONN  0       0                 [::]:5353            [::]:*            
+udp    UNCONN  0       0                 [::]:60287           [::]:*            
+tcp    LISTEN  0       128            0.0.0.0:22           0.0.0.0:*            
+tcp    LISTEN  0       128          127.0.0.1:631          0.0.0.0:*            
+tcp    LISTEN  0       4096     127.0.0.53%lo:53           0.0.0.0:*            
+tcp    LISTEN  0       128               [::]:22              [::]:*            
+tcp    LISTEN  0       128              [::1]:631             [::]:*            
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$ ^C
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$ gedit homework/module2/mukhametov_homework_2.md
+^C
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$ sudo ss -tulpn
+[sudo] пароль до ubuntu: 
+Netid   State    Recv-Q   Send-Q     Local Address:Port      Peer Address:Port  Process                                                                         
+udp     UNCONN   0        0            224.0.0.251:5353           0.0.0.0:*      users:(("chrome",pid=2101,fd=33))                                              
+udp     UNCONN   0        0                0.0.0.0:5353           0.0.0.0:*      users:(("avahi-daemon",pid=579,fd=12))                                         
+udp     UNCONN   0        0                0.0.0.0:51307          0.0.0.0:*      users:(("avahi-daemon",pid=579,fd=14))                                         
+udp     UNCONN   0        0          127.0.0.53%lo:53             0.0.0.0:*      users:(("systemd-resolve",pid=379,fd=13))                                      
+udp     UNCONN   0        0                   [::]:5353              [::]:*      users:(("avahi-daemon",pid=579,fd=13))                                         
+udp     UNCONN   0        0                   [::]:60287             [::]:*      users:(("avahi-daemon",pid=579,fd=15))                                         
+tcp     LISTEN   0        128              0.0.0.0:22             0.0.0.0:*      users:(("sshd",pid=730,fd=3))                                                  
+tcp     LISTEN   0        128            127.0.0.1:631            0.0.0.0:*      users:(("cupsd",pid=736,fd=7))                                                 
+tcp     LISTEN   0        4096       127.0.0.53%lo:53             0.0.0.0:*      users:(("systemd-resolve",pid=379,fd=14))                                      
+tcp     LISTEN   0        128                 [::]:22                [::]:*      users:(("sshd",pid=730,fd=4))                                                  
+tcp     LISTEN   0        128                [::1]:631               [::]:*      users:(("cupsd",pid=736,fd=6))                                                 
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$ nc -vz google.com 80
+Connection to google.com (142.251.98.101) 80 port [tcp/http] succeeded!
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$ nc -vz -w 5 8.8.8.8 53
+Connection to 8.8.8.8 53 port [tcp/domain] succeeded!
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$ nc -u -vz -w 5 8.8.8.8 53
+Connection to 8.8.8.8 53 port [udp/domain] succeeded!
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$ nslookup github.com
+;; communications error to 127.0.0.53#53: timed out
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	github.com
+Address: 140.82.121.3
+
+ubuntu@ubuntu-VirtualBox:~/computer-networks2$
+
